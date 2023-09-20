@@ -14,3 +14,8 @@ Algoritmo para verificar a consistência de um número de CPF.
 *se resultarem no mesmo número, o cpf é consistente ("válido")*
 
 Gere alguns CPF's para testar: [4devs](https://www.4devs.com.br/gerador_de_cpf)
+
+## Preview
+![visualização código executado](./preview/validaCpf.png)
+
+Execute no [Replit](https://replit.com/@frassing/validaCpf)
