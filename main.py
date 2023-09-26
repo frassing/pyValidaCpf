@@ -1,29 +1,29 @@
 # Certifica-se de receber um número de cpf correto para execução
 while (True):
-  userCpf = input('Digite cpf a ser validado: ')
+  user_cpf = input('Digite cpf a ser validado: ')
 
-  if not (userCpf.isnumeric()):
+  if not (user_cpf.isnumeric()):
     print('Digite apenas números. \n')
     continue
-  elif len(userCpf) < 11 or len(userCpf) >= 12:
+  elif len(user_cpf) < 11 or len(user_cpf) >= 12:
     print('Um CPF precisa ter 11 dígitos, por favor, tente novamente! \n')
     continue
   else:
     break
 
 # Variável secundária, em forma de lista; remove os dois últimos díg. inseridos pelo usuário
-newCpfList = list(userCpf)
-newCpfList.pop(-2)
-newCpfList.pop(-1)
+new_cpf_list = list(user_cpf)
+new_cpf_list.pop(-2)
+new_cpf_list.pop(-1)
 
 # Inicialização de variáveis
-firstDigit = 0
-secondDigit = 0
-cpfReturned = ''
+first_digit = 0
+second_digit = 0
+cpf_returned = ''
 
 
 # Função que encontra os dois dígitos verificadores:
-def findDigits(cpf, digit, peso=0):
+def find_digits(cpf, digit, peso=0):
   i = peso
   resultado = 0
 
@@ -40,20 +40,20 @@ def findDigits(cpf, digit, peso=0):
 
 
 # Chamada da função para encontrar o 1º dígito verificador, depois adiciona esse díg. à variável
-firstDigit = findDigits(newCpfList, firstDigit, 1)
-newCpfList.append(str(firstDigit))
+first_digit = find_digits(new_cpf_list, first_digit, 1)
+new_cpf_list.append(str(first_digit))
 
 # Chamada da função para encontrar o 2º dígito verificador, depois adiciona o díg. à variável
-secondDigit = findDigits(newCpfList, secondDigit)
-newCpfList.append(str(secondDigit))
+second_digit = find_digits(new_cpf_list, second_digit)
+new_cpf_list.append(str(second_digit))
 
 # Retornar o cpf para uma string
-for i in newCpfList:
-  cpfReturned += str(i)
+for i in new_cpf_list:
+  cpf_returned += str(i)
 
 # Comparação do cpf+os dígitos encontrados com o cpf inserido pelo usuário
 print('=' * 15)
-if cpfReturned == userCpf:
+if cpf_returned == user_cpf:
   print('CPF válido')
 else:
   print('CPF inválido')
